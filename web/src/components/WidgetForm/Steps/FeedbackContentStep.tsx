@@ -9,9 +9,6 @@ interface FeedbackContentStepProps {
     onFeedbackRestartRequested: () => void;
 }
 
-interface ScreenshotButtonProps {
-    onScreenshotTook: (screenshot: string) => void;
-}
 
 export function FeedbackContentStep({feedbackType, onFeedbackRestartRequested}: FeedbackContentStepProps){
     const feedbackTypeInfo = feedbackTypes[feedbackType];
@@ -44,6 +41,7 @@ export function FeedbackContentStep({feedbackType, onFeedbackRestartRequested}: 
 
                 <footer className='flex gap-2 mt-2'>
                     <ScreenshotButton 
+                        screenshot={screenshot}
                         onScreenshotTook={setScreenshot}
                     />
 
