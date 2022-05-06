@@ -1,5 +1,4 @@
 import express from 'express';
-import { prisma } from './prisma';
 
 import { SubmitFeedbackUseCases } from './useCases/submitFeedbackUseCases';
 import { PrismaFeedbackRepository } from './repositories/prisma/PrismaFeedbackRepository';
