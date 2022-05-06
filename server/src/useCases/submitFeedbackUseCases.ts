@@ -1,3 +1,4 @@
+import { MailAdapter } from "../adapters/MailAdapters";
 import { FeedbackRepository } from "../repositories/feedback-repository";
 
 interface SubmitFeedbackRequest {
@@ -8,8 +9,8 @@ interface SubmitFeedbackRequest {
 
 export class SubmitFeedbackUseCases{
     constructor(
-        private feedbackRepository: FeedbackRepository
-
+        private feedbackRepository: FeedbackRepository,
+        private mailAdapter: MailAdapter,
     ){}
     
     async execute(request: SubmitFeedbackRequest){
@@ -19,6 +20,14 @@ export class SubmitFeedbackUseCases{
             type,
             comment,
             screenshot
+        }),
+
+        this.mailAdapter.sendMail({
+            subject: "Novo Feedback",
+            body: [
+                `<p> Tipo do feedback ${type}</p>`,
+                `<p> Comentario ${comment}</p>`
+            ].join('\n')
         })
     };
 }
