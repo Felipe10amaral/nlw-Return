@@ -4,6 +4,8 @@ import React, { useRef } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import {theme} from '../../theme'
+import { Option } from '../Option';
+import { Options } from '../Options';
 
 import { styles } from './styles';
 
@@ -34,6 +36,8 @@ function Widget() {
           backgroundStyle={styles.modal}
           handleIndicatorStyle={styles.indicator}
         >
+        
+        <Options />
 
         </BottomSheet>
 
