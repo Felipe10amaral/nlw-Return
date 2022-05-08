@@ -8,6 +8,10 @@ import { Option } from '../Option';
 import { Options } from '../Options';
 
 import { styles } from './styles';
+import { feedbackTypes } from '../../utils/feedbackTypes';
+import { Form } from '../Form';
+
+export type FeedbackType = keyof typeof feedbackTypes;
 
 function Widget() {
 
@@ -37,7 +41,11 @@ function Widget() {
           handleIndicatorStyle={styles.indicator}
         >
         
-        <Options />
+        
+        <Form 
+          feedbackType='BUG'
+          
+        />
 
         </BottomSheet>
 
